@@ -75,7 +75,7 @@ public class TransitionTester {
 		leftFrame.setVisible(true);
 		rightFrame.setVisible(true);
 
-		final int NumTransitions = 2;	
+		final int NumTransitions = 3;	
 		int nextTransition = 0;
 		while (leftFrame.isVisible() || rightFrame.isVisible()) {
 			myRightPanel.clearImage(myRightPanel.getGraphics());
