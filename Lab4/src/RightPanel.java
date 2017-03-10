@@ -36,19 +36,12 @@ public class RightPanel extends JPanel {
 			for (int j=0; j<height; j++){
 				int pixelColor= leftImage.getRGB(i,j);
 				img.setRGB(i, j, pixelColor);
-
 			}
-
 			repaint();
-
 			try { Thread.sleep(10); } catch (InterruptedException e) { };
-
 		}
-
 	}
 	
-
-	//
 	// Transition by rows left to right top to bottom
 	public void transitionLRTB(Graphics g, BufferedImage leftImage) {
 		int width = leftImage.getWidth();
@@ -62,6 +55,7 @@ public class RightPanel extends JPanel {
 			try { Thread.sleep(10); } catch (InterruptedException e) { };
 		}
 	}
+	
 	// Transition random pixels
 	public void transitionRandom(Graphics g, BufferedImage leftImage) {
 		int width = leftImage.getWidth();
@@ -75,9 +69,8 @@ public class RightPanel extends JPanel {
 			repaint();
 			try { Thread.sleep(1); } catch (InterruptedException e) { };
 		}			
-		try { Thread.sleep(15); } catch (InterruptedException e) { };
+		try { Thread.sleep(10); } catch (InterruptedException e) { };
 		}
-	
 	
 	// Transition diagonal form top to bottom, left to right
 	public void transitionDiagonal45LR(Graphics g, BufferedImage leftImage) {
