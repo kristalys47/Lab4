@@ -88,8 +88,10 @@ public class TransitionTester {
 					break;
 				case 2:
 					myRightPanel.transitionTBLR(myRightPanel.getGraphics(), img);
+					break;
 				case 3:
 					myRightPanel.transitionRandom(myRightPanel.getGraphics(), img);
+					break;
 			}
 			nextTransition = (nextTransition + 1) % NumTransitions;
 		}

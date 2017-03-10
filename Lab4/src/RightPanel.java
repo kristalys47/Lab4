@@ -72,9 +72,10 @@ public class RightPanel extends JPanel {
 			int randomy=randomGenerator.nextInt(height);
 			int pixelColor= leftImage.getRGB(randomx,randomy);
 			img.setRGB(randomx,randomy, pixelColor);
-		}
 			repaint();
-			try { Thread.sleep(10); } catch (InterruptedException e) { };
+			try { Thread.sleep(1); } catch (InterruptedException e) { };
+		}			
+		try { Thread.sleep(10); } catch (InterruptedException e) { };
 		}
 	
 	
