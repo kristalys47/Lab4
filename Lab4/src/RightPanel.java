@@ -79,9 +79,9 @@ public class RightPanel extends JPanel {
 				repaint();
 				try { Thread.sleep(10); } catch (InterruptedException e) { };
 			}
-			for (int i=0; i<(width-height); i++) {//width-height is to know how many columns are left with some pixels
-				int row = height;//the one the loop added at the end that made it end that is why you need to subtract one
-				int col = i;//it start at 0 so we need to add one more column
+			for (int i=0; i<(width-height); i++) {
+				int row = height-1;
+				int col = i+1;
 				for (int j=0; j<height; j++) {
 					int pixelColor= leftImage.getRGB(col,row);
 					img.setRGB(col, row, pixelColor);
@@ -103,33 +103,33 @@ public class RightPanel extends JPanel {
 		}
 		else 
 		{
-			for (int row=0; row<height; row++){
-				int diagonalRow = row;
-				for (int col=0; col<=row; col++) {
-					int pixelColor= leftImage.getRGB(col,diagonalRow);
-					img.setRGB(col, diagonalRow, pixelColor);
-					diagonalRow--;
+			for (int col=0; col<width; col++){
+				int diagonalCol = col;
+				for (int row=0; row<=col; row++) {
+					int pixelColor= leftImage.getRGB(diagonalCol,row);
+					img.setRGB(diagonalCol, row, pixelColor);
+					diagonalCol--;
 				}
 				repaint();
 				try { Thread.sleep(10); } catch (InterruptedException e) { };
 			}
 			for (int i=0; i<(height-width); i++) {
-				int row = width-1;
-				int col = i+1;
+				int row = i+1;
+				int col = width-1;
 				for (int j=0; j<width; j++) {
 					int pixelColor= leftImage.getRGB(col,row);
 					img.setRGB(col, row, pixelColor);
-					col++; row--;
+					col--; row++;
 				}
 				repaint();
 				try { Thread.sleep(10); } catch (InterruptedException e) { };
 			}
-			for (int i=0; i<=(width); i++) {
-				int diagonalRow = height-1;
-				for (int col=(width-height+i); col<width; col++) {
-					int pixelColor= leftImage.getRGB(col,diagonalRow);
-					img.setRGB(col, diagonalRow, pixelColor);
-					diagonalRow--;
+			for (int i=0; i<=(height); i++) {
+				int diagonalCol = width-1;
+				for (int row=(height-width+i); row<height; row++) {
+					int pixelColor= leftImage.getRGB(diagonalCol,row);
+					img.setRGB(diagonalCol,row, pixelColor);
+					diagonalCol--;
 				}
 				repaint();
 				try { Thread.sleep(10); } catch (InterruptedException e) { };
