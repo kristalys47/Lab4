@@ -1,5 +1,7 @@
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.util.Random;
+
 import javax.swing.JPanel;
 
 public class RightPanel extends JPanel {
@@ -60,9 +62,23 @@ public class RightPanel extends JPanel {
 			try { Thread.sleep(10); } catch (InterruptedException e) { };
 		}
 	}
-
-	//
-	// Transition by diagonals bottom to top left to right
+	// Transition random pixels
+	public void transitionRandom(Graphics g, BufferedImage leftImage) {
+		int width = leftImage.getWidth();
+		int height = leftImage.getHeight();
+		for (int j=0; j<(height*width); j++){
+			Random randomGenerator = new Random();
+			int randomx=randomGenerator.nextInt(width);
+			int randomy=randomGenerator.nextInt(height);
+			int pixelColor= leftImage.getRGB(randomx,randomy);
+			img.setRGB(randomx,randomy, pixelColor);
+		}
+			repaint();
+			try { Thread.sleep(10); } catch (InterruptedException e) { };
+		}
+	
+	
+	// Transition diagonal form top to bottom, left to right
 	public void transitionDiagonal45LR(Graphics g, BufferedImage leftImage) {
 		int width = leftImage.getWidth();
 		int height = leftImage.getHeight();
